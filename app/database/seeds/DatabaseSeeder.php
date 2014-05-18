@@ -10,8 +10,23 @@ class DatabaseSeeder extends Seeder {
 	public function run()
 	{
 		Eloquent::unguard();
+		//Disable foreign key checks while seeding:
+		DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
-		// $this->call('UserTableSeeder');
+		
+		// Establish the tables to truncate (empty):
+		$tables = array(
+			'widgets',
+		    );
+
+		    foreach ($tables as $table) {
+		      DB::table($table)->truncate();
+		    }
+		
+		$this->call('WidgetSeeder');
+		
+		// Re-enable foreign key checks:
+		DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 	}
 
 }
