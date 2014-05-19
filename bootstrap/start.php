@@ -27,14 +27,16 @@ $app = new Illuminate\Foundation\Application;
 // For AWS elastic environment detection:
 //$elastic_hostname = (isset($_SERVER['LARAVEL_ENVIRONMENT']) && $_SERVER['LARAVEL_ENVIRONMENT'] === "PRODUCTION") ? $_SERVER['SERVER_NAME'] : 'non-existant-hostname';
 
+/*
 // get the hostname:
 $detectedHostName = gethostname();
 $elastic_hostname = (isset($_SERVER['LARAVEL_ENVIRONMENT']) && $_SERVER['LARAVEL_ENVIRONMENT'] === "PRODUCTION") ? $detectedHostName : 'non-existant-hostname';
+*/
 
 // Now apply local and elastic configs:
 $env = $app->detectEnvironment(array(
 	'local' => array('mentzersmac.duoc.edu','Peters-Air.local','peters-air'),
-    'elastic' => array($elastic_hostname)
+    'elastic' => array('ip-172-31-14-182')
 ));
 
 /*
