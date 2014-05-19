@@ -13,8 +13,7 @@ return array(
 	|
 	*/
 
-	// tweaking this just to see if we can get some more useful errors up at AWS:
-	'debug' => true,
+	'debug' => false,
 
 	/*
 	|--------------------------------------------------------------------------
