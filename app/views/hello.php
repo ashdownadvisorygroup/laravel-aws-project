@@ -14,7 +14,10 @@
 		<h1>Laravel AWS Project</h1>
 		<p>This is a sample deployment of the Laravel PHP Framework onto AWS Elastic Beanstalk. It includes an RDS DB, elastic environment detection, and a sample model for <a href="/widget">widgets</a>.</p>
 		<?php $environment = App::environment(); ?>
-		<p>Info: <?php echo $environment; ?></p>
+		<?php $detectedHostName = gethostname(); ?>
+		<p>Env: <?php echo $environment; ?></p>
+		<p>Host: <?php echo $detectedHostName; ?></p>
+		<p></p>
 	</div>
 </body>
 </html>
