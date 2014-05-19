@@ -25,7 +25,8 @@ $app = new Illuminate\Foundation\Application;
 */
 
 // For AWS elastic environment detection:
-$elastic_hostname = isset($_SERVER['RDS_HOSTNAME']) ? $_SERVER['SERVER_NAME'] : 'non-existant-hostname';
+// $elastic_hostname = isset($_SERVER['RDS_HOSTNAME']) ? $_SERVER['SERVER_NAME'] : 'non-existant-hostname';
+$elastic_hostname= $_SERVER['RDS_HOSTNAME'];
 // Now apply local and elastic configs:
 $env = $app->detectEnvironment(array(
 	'local' => array('mentzersmac.duoc.edu','Peters-Air.local','peters-air'),
