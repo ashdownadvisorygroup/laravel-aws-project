@@ -78,7 +78,9 @@ return array(
 	|
 	*/
 
-	'key' => 'q6gZPZjCqO5vdk45W4to5PV6g9Rl1wds',
+	// Use: 'php artisan key:generate' command to set a real one.
+	// Better yet, tho, place it in your local/elastic config files:
+	'key' => 'Set_Up_Your_Key_Here',
 
 	/*
 	|--------------------------------------------------------------------------

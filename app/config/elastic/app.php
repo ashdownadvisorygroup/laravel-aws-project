@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'q6gZPZjCqO5vdk45W4to5PV6g9Rl1wds',
+	'key' => $_SERVER['LARAVEL_ENCRYPTION_KEY'],
 
 	/*
 	|--------------------------------------------------------------------------

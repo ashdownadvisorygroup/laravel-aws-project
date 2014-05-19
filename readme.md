@@ -1,3 +1,11 @@
+## Laravel AWS Project
+
+### This is just a personal test project. Useful as a code reference only.
+This is a test project to look into various ways of deploying laravel to Amazon Web Services Elastic Beanstalk service. It is simple, and includes a database with some test data seeded into it via migrations, and seeding, a simple contoller and a view. The point is to fiddle with the .ebextensions directory configs and see what works the best to get a working laravel instance up at AWS. Also interesting to look at is the bootstrap/start.php file which attempts to detect the environment at AWS based on the hostname and a custom environment parameter.
+
+### Configuration
+You'll need to add your own local environment file ".env.local.php". See the laravel docs: [Laravel website](http://laravel.com/docs). You'll also need to modify the hostnames in the local environment section of the bootstrap/start.php file.
+
 ## Laravel PHP Framework
 
 [![Latest Stable Version](https://poser.pugx.org/laravel/framework/version.png)](https://packagist.org/packages/laravel/framework) [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.png)](https://packagist.org/packages/laravel/framework) [![Build Status](https://travis-ci.org/laravel/framework.png)](https://travis-ci.org/laravel/framework) [![License](https://poser.pugx.org/laravel/framework/license.png)](https://packagist.org/packages/laravel/framework)
