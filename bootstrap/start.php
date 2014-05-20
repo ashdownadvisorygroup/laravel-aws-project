@@ -23,8 +23,12 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
+// Set up some variables we'll use later:
 $detectedHostName = gethostname();
 $nonExistentHostName = '';
+$localHostName1 = $nonExistentHostName;
+$localHostName2 = $nonExistentHostName;
+$localHostName3 = $nonExistentHostName;
 /*
 |--------------------------------------------------------------------------
 | Amazon Web Services: Elastic Beanstalk Environment Detection
