@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -24,19 +23,43 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-// For AWS elastic environment detection:
-
-// First get the hostname from the server:
 $detectedHostName = gethostname();
-// Now if we are on AWS (where our config has set LARAVEL_ENVIRONMENT to PRODUCTION)
-// Then set $elasticHostName to the current EC2 hostname:
-$elasticHostName = (isset($_SERVER['LARAVEL_ENVIRONMENT']) && $_SERVER['LARAVEL_ENVIRONMENT'] === "production") ? $detectedHostName : 'non-existant-hostname';
-
-// Now apply local and elastic configs:
+$nonExistentHostName = '';
+/*
+|--------------------------------------------------------------------------
+| Amazon Web Services: Elastic Beanstalk Environment Detection
+|--------------------------------------------------------------------------
+|
+| If we detect the variables we configured in .ebextensions/01setup.config:
+| Simply detect the hostname of the EC2 instance and use it.
+|
+*/
+if (isset($_SERVER['LARAVEL_ENVIRONMENT']) && $_SERVER['LARAVEL_ENVIRONMENT'] === "production")
+	{
+		$elasticHostName = $detectedHostName;
+	}
+/*
+|--------------------------------------------------------------------------
+| Local Environment Detection
+|--------------------------------------------------------------------------
+|
+| If we are not at AWS, then include a local file to provide hostnames:
+|
+*/ 
+else {
+	$elasticHostName = $nonExistentHostName;
+	include_once(__DIR__.'/../.local-include.php');
+}
+/*
+|--------------------------------------------------------------------------
+| Apply environments depending on hostnames
+|--------------------------------------------------------------------------
+|
+*/ 
 $env = $app->detectEnvironment(array(
-	'local' => array('mentzersmac.duoc.edu','Peters-Air.local','peters-air'),
+	'local' => array($localHostName1, $localHostName2, $localHostName3),
     'elastic' => array($elasticHostName)
-));
+)); 
 
 /*
 |--------------------------------------------------------------------------

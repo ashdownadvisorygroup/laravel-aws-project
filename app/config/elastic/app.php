@@ -1,5 +1,12 @@
 <?php
 
+
+// Put this in an if statement to avoid raising undefined warnings:
+if (isset($_SERVER['LARAVEL_ENCRYPTION_KEY'])) {
+	$awsLaravelKey = $_SERVER['LARAVEL_ENCRYPTION_KEY'];
+}
+else $awsLaravelKey = '';
+
 return array(
 
 	/*
@@ -77,8 +84,9 @@ return array(
 	| will not be safe. Please do this before deploying an application!
 	|
 	*/
-
-	'key' => $_SERVER['LARAVEL_ENCRYPTION_KEY'],
+	
+	// Note that we set this above, under a condition:
+	'key' => $awsLaravelKey,
 
 	/*
 	|--------------------------------------------------------------------------
